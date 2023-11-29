@@ -3,6 +3,7 @@
 ```plain
 #START PERSONAL#
 1password.com
+1password.eu
 mailbox.org
 #END PERSONAL#
 #START DISNEYPLUS#
