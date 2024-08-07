@@ -1,6 +1,6 @@
 # VPN Routing policies for GL.iNET routers
 
-This repository contains routing policies for GL.iNET routers. The policies are used to exclude certain domains from the VPN tunnel. This is useful if you need access streaming services that are blocked when using a VPN. Main usage in Germany.
+This repository contains routing policies for GL.iNET routers. The policies are used to exclude certain domains from the VPN tunnel. This is useful if you need access streaming services that are blocked when using a VPN. Main usage in Germany via Mullvad.
 
 This list is not complete and will be updated from time to time. Feel free to contribute.
 
@@ -15,6 +15,8 @@ _The one marked as personal are used by me and may not be useful for you._
 
 ```plain
 #START PERSONAL#
+shop.deutschepost.de
+deutschepost.de
 1password.com
 1password.eu
 mailbox.org
