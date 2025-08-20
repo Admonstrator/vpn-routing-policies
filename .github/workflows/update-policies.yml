@@ -1,0 +1,41 @@
+name: Update Complete Policies
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  update-policies:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Download external policies
+      run: |
+        curl -s https://lou.h4ck.me/vpn_bypass.txt > external_policies.txt
+        
+    - name: Merge policies
+      run: |
+        echo "# Combined VPN Routing Policies" > policies_complete.txt
+        echo "# Generated on $(date)" >> policies_complete.txt
+        echo "" >> policies_complete.txt
+        echo "# Local policies from policies.txt:" >> policies_complete.txt
+        cat policies.txt >> policies_complete.txt
+        echo "" >> policies_complete.txt
+        echo "# External policies from https://lou.h4ck.me/vpn_bypass.txt:" >> policies_complete.txt
+        cat external_policies.txt >> policies_complete.txt
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add policies_complete.txt
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update policies_complete.txt - $(date)"
+          git push
+        fi
