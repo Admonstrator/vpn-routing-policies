@@ -1,5 +1,5 @@
 # Combined VPN Routing Policies
-# Generated on Sat Aug 23 00:12:04 UTC 2025
+# Generated on Sun Aug 24 00:14:02 UTC 2025
 
 # Local policies from policies.txt:
 #START PERSONAL#
@@ -5319,6 +5319,7 @@ aws-cbc.cloud
 44.247.17.0/24
 44.248.100.0/23
 44.248.111.192/26
+44.254.14.0/23
 99.77.244.0/24
 99.77.238.0/24
 99.77.240.0/24
